@@ -1,13 +1,13 @@
+package main;
+
 import java.io.*;
 import java.util.*;
-import javax.swing.JFileChooser;
 
 public class UserSetup 
 {
-	//formatted as 'username_admin?(y/n)_desiredpassword'
+	//formatted as 'username_admin?(y/n)'
 	private String[] usernames;
 	private boolean[] adminPerms;
-	private String[] pwds;
 	
 	public UserSetup(File input) throws IOException
 	{
@@ -17,7 +17,6 @@ public class UserSetup
 			lines.add(s.next());
 		usernames = new String[lines.size()];
 		adminPerms = new boolean[lines.size()];
-		pwds = new String[lines.size()];
 		String[] line;
 		int i = 0;
 		for(String str: lines)
@@ -25,7 +24,6 @@ public class UserSetup
 			line = str.split("_");
 			usernames[i] = line[0];
 			adminPerms[i] = line[1].equals("y") ? true : false;
-			pwds[i] = line[2];
 			i++;
 		}
 		s.close();
@@ -46,8 +44,8 @@ public class UserSetup
 		Process p;
 		
 		//disable guest account
-		/*builder = new ProcessBuilder("cmd.exe", "/c", "net user Guest /active:no");
-		p = builder.start();*/
+		builder = new ProcessBuilder("cmd.exe", "/c", "net user Guest /active:no");
+		p = builder.start();
 		
 		//generate list of documented users
 		builder.command("cmd.exe", "/c", "net user");
@@ -65,20 +63,26 @@ public class UserSetup
 		r.close();
 		String[] sysUsers = genUserArray(lines);
 		ArrayList<String[]> comp1 = compArrays(usernames, sysUsers);
-		System.out.println(Arrays.toString(comp1.get(0)));
-		System.out.println(Arrays.toString(comp1.get(1)));
+		
+		System.out.println("Users Removed: " + Arrays.toString(comp1.get(0)));
+		System.out.println("Users Added" + Arrays.toString(comp1.get(1)));
 		
 		String[] remove = comp1.get(0);
 		String[] add = comp1.get(1);
 		
 		for(int i = 0; i < remove.length; i++)
 		{
-			//System.out.println("net user \"" + remove[i] + "\" /delete");
 			builder.command("cmd.exe", "/c", "net user \"" + remove[i] + "\" /delete");
 			p = builder.start();
 		}
 		
-		/*builder.command("cmd.exe", "/c", "net localgroup Administrators");
+		for(int i = 0; i < add.length; i++)
+		{
+			builder.command("cmd.exe", "/c", "net user \"" + remove[i] + "\" /delete");
+			p = builder.start();
+		}
+		
+		builder.command("cmd.exe", "/c", "net localgroup Administrators");
 		p = builder.start();
 		r = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		List<String> adminLines = new ArrayList<String>();
@@ -90,10 +94,64 @@ public class UserSetup
 		}
 		r.close();
 		String[] sysAdmins = genUserArray(adminLines);
-		ArrayList<String[]> comp2 = compArrays(usernames, sysUsers);
-		System.out.println(Arrays.toString(sysAdmins));*/
+		
+		List<String> adminNamesList = new ArrayList<String>();
+		String[] adminNames;
+		for(int i = 0; i < adminPerms.length; i++)
+		{
+			if(adminPerms[i])
+				adminNamesList.add(usernames[i]);
+		}
+		adminNames = new String[adminNamesList.size()];
+		
+		for(int i = 0; i < adminNamesList.size(); i++)
+			adminNames[i] = adminNamesList.get(i);
+		
+		ArrayList<String[]> comp2 = compArrays(adminNames, sysAdmins);
+		//System.out.println(Arrays.toString(sysAdmins));
+		remove = comp2.get(0);
+		add = comp2.get(1);
+		System.out.println("Admins Removed: " + Arrays.toString(comp1.get(0)));
+		System.out.println("Admins Added" + Arrays.toString(comp1.get(1)));
+		
+		for(String name: remove)
+		{
+			builder.command("cmd.exe", "/c", "net localgrup Administrators \"" + name + "\" /delete ");
+			p = builder.start();
+		}
+		
+		for(String name: add)
+		{
+			builder.command("cmd.exe", "/c", "net localgrup Administrators \"" + name + "\" /add ");
+			p = builder.start();
+		}
+		
+		addPasswords("Cyberpatriot123$");
 	}
 	
+	private void addPasswords(String pass) throws IOException
+	{
+		ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "net user");
+		builder.redirectErrorStream(true);
+		Process p = builder.start();
+		BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		String line;
+		List<String> lines = new ArrayList<String>();
+		while(true)
+		{
+			line = r.readLine();
+			if(line == null) break;
+			lines.add(line);
+		}
+		r.close();
+		String[] sysUsers = genUserArray(lines);
+		for(String name: sysUsers)
+		{
+			builder.command("cmd.exe", "/c", "net user " + name + " " + pass);
+			p = builder.start();
+		}
+	}
+
 	private String[] genUserArray(List<String> lines)
 	{
 		//trim header of output
