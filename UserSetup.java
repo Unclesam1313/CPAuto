@@ -1,5 +1,3 @@
-package main;
-
 import java.io.*;
 import java.util.*;
 import javax.swing.JFileChooser;
@@ -73,13 +71,13 @@ public class UserSetup
 		String[] add = comp1.get(0);
 		String[] remove = comp1.get(1);
 		
-		for(int i = 0; i < remove.length; i++)
+		/*for(int i = 0; i < remove.length; i++)
 		{
 			builder.command("cmd.exe", "/c", "net user \"" + remove[i] + " /delete");
 			p = builder.start();
-		}
+		}*/
 		
-		builder.command("cmd.exe", "/c", "net localgroup Administrators");
+		/*builder.command("cmd.exe", "/c", "net localgroup Administrators");
 		p = builder.start();
 		r = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		List<String> adminLines = new ArrayList<String>();
@@ -92,7 +90,7 @@ public class UserSetup
 		r.close();
 		String[] sysAdmins = genUserArray(adminLines);
 		ArrayList<String[]> comp2 = compArrays(usernames, sysUsers);
-		System.out.println(Arrays.toString(sysAdmins));
+		System.out.println(Arrays.toString(sysAdmins));*/
 	}
 	
 	private String[] genUserArray(List<String> lines)
@@ -156,8 +154,8 @@ public class UserSetup
 			{	
 				if(arr2[i].equals(s))
 				{
-					
 					flag = true;
+					break;
 				}
 			}
 			if(!flag)
@@ -188,13 +186,13 @@ public class UserSetup
 		String[] half1 = new String[index1.size()];
 		for(int i = 0; i < index1.size(); i++)
 		{
-			half1[i] = arr1[index1.get(i)];
+			half1[i] = arr2[index1.get(i)];
 		}
 		
 		String[] half2 = new String[index2.size()];
 		for(int i = 0; i < index2.size(); i++)
 		{
-			half2[i] = arr2[index2.get(i)];
+			half2[i] = arr1[index2.get(i)];
 		}
 		
 		result.add(half1);
