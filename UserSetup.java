@@ -110,8 +110,8 @@ public class UserSetup
 		//System.out.println(Arrays.toString(sysAdmins));
 		remove = comp2.get(0);
 		add = comp2.get(1);
-		System.out.println("Admins Removed: " + Arrays.toString(comp1.get(0)));
-		System.out.println("Admins Added" + Arrays.toString(comp1.get(1)));
+		System.out.println("Admins Removed: " + Arrays.toString(comp2.get(0)));
+		System.out.println("Admins Added" + Arrays.toString(comp2.get(1)));
 		
 		for(String name: remove)
 		{
