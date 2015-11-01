@@ -216,7 +216,7 @@ public class UserSetup
 		//new UserSetup(null);
 	}*/
 	
-	public static boolean adminTest()  
+	/*public static boolean adminTest()  
 	{
 		File dir = new File("C:/Program Files");
 		
@@ -241,5 +241,5 @@ public class UserSetup
 	            fileTest.delete();
 	    }
 	    return true;
-	}
+	}*/
 }
