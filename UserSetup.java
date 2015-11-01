@@ -71,11 +71,11 @@ public class UserSetup
 		String[] add = comp1.get(0);
 		String[] remove = comp1.get(1);
 		
-		/*for(int i = 0; i < remove.length; i++)
+		for(int i = 0; i < remove.length; i++)
 		{
 			builder.command("cmd.exe", "/c", "net user \"" + remove[i] + " /delete");
 			p = builder.start();
-		}*/
+		}
 		
 		/*builder.command("cmd.exe", "/c", "net localgroup Administrators");
 		p = builder.start();
