@@ -115,13 +115,13 @@ public class UserSetup
 		
 		for(String name: remove)
 		{
-			builder.command("cmd.exe", "/c", "net localgrup Administrators \"" + name + "\" /delete ");
+			builder.command("cmd.exe", "/c", "net localgroup Administrators \"" + name + "\" /delete");
 			p = builder.start();
 		}
 		
 		for(String name: add)
 		{
-			builder.command("cmd.exe", "/c", "net localgrup Administrators \"" + name + "\" /add ");
+			builder.command("cmd.exe", "/c", "net localgroup Administrators \"" + name + "\" /add");
 			p = builder.start();
 		}
 		
