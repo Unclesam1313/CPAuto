@@ -77,7 +77,7 @@ public class UserSetup
 		
 		for(int i = 0; i < add.length; i++)
 		{
-			builder.command("cmd.exe", "/c", "net user \"" + add[i] + "\" Cyberpatriot123$ /add");
+			builder.command("cmd.exe", "/c", "net user \"" + add[i] + "\" Cyberpat123$ /add");
 			p = builder.start();
 		}
 		
@@ -125,7 +125,7 @@ public class UserSetup
 			p = builder.start();
 		}
 		
-		addPasswords("Cyberpatriot123$");
+		addPasswords("Cyberpat123$");
 	}
 	
 	private void addPasswords(String pass) throws IOException
