@@ -1,6 +1,5 @@
 public class FirewallSetup 
 {
-	@SuppressWarnings("unused")
 	private Process p;
 
 	public FirewallSetup()
