@@ -68,12 +68,13 @@ public class UserSetup
 		System.out.println(Arrays.toString(comp1.get(0)));
 		System.out.println(Arrays.toString(comp1.get(1)));
 		
-		String[] add = comp1.get(0);
-		String[] remove = comp1.get(1);
+		String[] remove = comp1.get(0);
+		String[] add = comp1.get(1);
 		
 		for(int i = 0; i < remove.length; i++)
 		{
-			builder.command("cmd.exe", "/c", "net user \"" + remove[i] + " /delete");
+			//System.out.println("net user \"" + remove[i] + "\" /delete");
+			builder.command("cmd.exe", "/c", "net user \"" + remove[i] + "\" /delete");
 			p = builder.start();
 		}
 		
