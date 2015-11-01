@@ -203,18 +203,18 @@ public class UserSetup
 		return result;
 	}
 	
-	public static void main(String[] args) throws IOException
+	/*public static void main(String[] args) throws IOException
 	{
-		/*if(!adminTest())
+		if(!adminTest())
 		{
 			System.out.println("Please Run as an Admin");
 			System.exit(0);
-		}*/
+		}
 		final JFileChooser fc = new JFileChooser();
 		fc.showDialog(null, "Use File");
 		new UserSetup(fc.getSelectedFile());
 		//new UserSetup(null);
-	}
+	}*/
 	
 	public static boolean adminTest()  
 	{
