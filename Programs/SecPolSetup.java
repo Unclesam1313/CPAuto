@@ -1,7 +1,9 @@
 
 public class SecPolSetup 
 {
-	public SecPolSetup(Process p)
+	private Process p;
+	
+	public SecPolSetup()
 	{
 		ProcessBuilder builder = new ProcessBuilder();
 		builder.command("cmd.exe", "/c", "Secedit /import /db \"C:\\%Windows%\\security\\database\\secedit.sdb\" /cfg \"C:\\CPAuto\\StandPol.inf\"");
@@ -11,7 +13,6 @@ public class SecPolSetup
 
 	public static void main(String[] args) throws Exception 
 	{
-		new SecPolSetip(new Process());
+		new SecPolSetup();
 	}
-
 }
