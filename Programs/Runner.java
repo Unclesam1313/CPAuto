@@ -13,6 +13,9 @@ public class Runner {
 		final JFileChooser fc = new JFileChooser();
 		fc.showDialog(null, "Use File");
 		new UserSetup(fc.getSelectedFile());
+		new FirewallSetup();
+		new SecPolSetup();
+		new UACSetup();
 		//new UserSetup(null);
 	}
 	
