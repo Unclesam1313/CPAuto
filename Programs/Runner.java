@@ -2,7 +2,8 @@ import java.io.*;
 
 import javax.swing.JFileChooser;
 
-public class Runner {
+public class Runner
+{
 	public static void main(String[] args) throws IOException
 	{
 		if(!adminTest())
