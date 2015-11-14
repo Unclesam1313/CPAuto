@@ -1,9 +1,15 @@
-import java.util.List;
+import java.util.*;
 
 public class MFolder implements MItem 
 {
 	private String path;
 	private List<MItem> contents;
+	
+	public MFolder(String p)
+	{
+		path = p;
+		contents = new ArrayList<MItem>();
+	}
 	
 	public boolean isFile()
 	{
@@ -28,5 +34,15 @@ public class MFolder implements MItem
 	public List<MItem> contents()
 	{
 		return contents;
+	}
+	
+	public void addFolder(String p)
+	{
+		contents.add(new MFolder(path));
+	}
+	
+	public void addFile(String p)
+	{
+		contents.add(new MFile(path));
 	}
 }
