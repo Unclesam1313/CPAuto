@@ -6,7 +6,8 @@ public class UACSetup
 	{
 		try
 		{
-			ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "C:\\Windows\\System32\\cmd.exe /k %windir%\\System32\\reg.exe ADD  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v  EnableLUA /t REG_DWORD /d 1 /f");
+			//ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "C:\\Windows\\System32\\cmd.exe /k %windir%\\System32\\reg.exe ADD  HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v  EnableLUA /t REG_DWORD /d 1 /f");
+			ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "C:\Windows\System32\UserAccountControlSettings.exe");
 			builder.redirectErrorStream(true);
 			p = builder.start();
 		}
