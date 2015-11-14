@@ -17,7 +17,6 @@ public class Runner
 		new FirewallSetup();
 		new SecPolSetup();
 		new UACSetup();
-		//new UserSetup(null);
 	}
 	
 	public static boolean adminTest()  
