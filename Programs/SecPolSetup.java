@@ -1,4 +1,3 @@
-
 public class SecPolSetup 
 {
 	private Process p;
@@ -11,6 +10,7 @@ public class SecPolSetup
 		builder.command("cmd.exe", "/c", "Secedit /configure /db secedit.sdb /cfg C:\\CPAuto\\StandPol.inf /overwrite /quiet");
 		builder.redirectErrorStream(true);
 		p = builder.start();
+		System.out.println("HereASD");
 		}
 		catch(Exception e)
 		{
@@ -22,5 +22,6 @@ public class SecPolSetup
 	public static void main(String[] args) throws Exception 
 	{
 		new SecPolSetup();
+
 	}
 }
