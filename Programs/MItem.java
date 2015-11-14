@@ -1,5 +1,3 @@
-package media;
-
 public interface MItem 
 {
 	public boolean isFile();
