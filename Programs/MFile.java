@@ -1,5 +1,3 @@
-package media;
-
 public class MFile 
 {
 	private String path;
