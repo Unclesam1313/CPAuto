@@ -1,6 +1,11 @@
-public class MFile 
+public class MFile implements MItem
 {
 	private String path;
+	
+	public MFile(String p)
+	{
+		path = p;
+	}
 	
 	public boolean isFile()
 	{
