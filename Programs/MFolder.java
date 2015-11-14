@@ -1,5 +1,3 @@
-package media;
-
 import java.util.List;
 
 public class MFolder implements MItem 
