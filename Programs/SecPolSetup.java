@@ -8,7 +8,7 @@ public class SecPolSetup
 		try
 		{
 		ProcessBuilder builder = new ProcessBuilder();
-		builder.command("cmd.exe", "/c", "Secedit /configure /db secedit.sdb /cfg C:\CPAuto\StandPol.inf /overwrite /quiet");
+		builder.command("cmd.exe", "/c", "Secedit /configure /db secedit.sdb /cfg C:\\CPAuto\\StandPol.inf /overwrite /quiet");
 		builder.redirectErrorStream(true);
 		p = builder.start();
 		}
