@@ -11,13 +11,13 @@ public class MTester
 		if(item.isFile())
 		{
 			for(int i = level; i > 0; i--)
-				System.out.println("\t");
+				System.out.print("\t");
 			System.out.println(item.path());
 		}
 		else if(item.isFolder())
 		{
 			for(int i = level; i > 0; i--)
-				System.out.println("\t");
+				System.out.print("\t");
 			System.out.println(item.path());
 			for(MItem itm: ((MFolder)item).contents())
 				print(itm, level+1);
