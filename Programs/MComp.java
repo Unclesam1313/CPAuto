@@ -7,7 +7,7 @@ public class MComp
 	private final String EXTENSIONS = "*.bmp *.asf *.wma *.wmv *.wm *.asx *.wax *.wvx *.wmx *.wpl *.dvr-ms *.wmd *.avi *.mpg *.mpeg *.m1v *.mp2 *.mp3 "
 			+ "*.mpa *.mpe *.m3u *.mid *.midi *.rmi *.aif *.aifc *.aif *.au *.snd *.wav *.cda *.ivf *.wmz *.wms *.mov *.m4a *.mp4 *.m4v *.mp4v *.3g2 "
 			+ "*.3gp2 *.3gp *.3gpp *.aac *.adt *.adts *.m2ts *.tif *.tiff *.gif *.jpeg *.jpg *.jif *.jfif *.jp2 *.jpx *.j2k *.j2c *.fpx *.pcd *.png *.pdf"
-			+ "* .txt";
+			+ " *.txt";
 	
 	public MComp() throws IOException
 	{
@@ -25,19 +25,18 @@ public class MComp
 			lines.add(line);
 		}
 		r.close();
-		for(String l: lines)
-		{
-			System.out.println(l);
-		}
 		
 		process(lines);
 	}
 	
 	private void process(List<String> lines)
 	{
-		for(int i = lines.size() - 1; i >= 0 ; i++)
+		System.out.println(lines);
+		for(int i = lines.size() - 1; i >= 0 ; i--)
 		{
+			System.out.println(lines.get(i));
 			String[] path = lines.get(i).split("[\\\\]");
+			System.out.println(Arrays.toString(path));
 			if(!search(MBuild.genList(), path, 0))
 				lines.remove(i);
 		}
