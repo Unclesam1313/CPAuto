@@ -1,5 +1,3 @@
-package media;
-
 public class MTester 
 {
 	public static void main(String[] args)
