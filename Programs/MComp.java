@@ -1,3 +1,5 @@
+package media;
+
 import java.io.*;
 import java.util.*;
 
@@ -10,7 +12,7 @@ public class MComp
 	public MComp() throws IOException
 	{
 
-		ProcessBuilder b = new ProcessBuilder("cmd.exe", "/c","cd C:\\ && dir /s /b " + EXTENSIONS);
+		ProcessBuilder b = new ProcessBuilder("cmd.exe", "/c","cd C:\\test && dir /s /b " + EXTENSIONS);
 		b.redirectErrorStream(true);			
 		Process p = b.start();
 		BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
@@ -29,15 +31,23 @@ public class MComp
 	
 	private void process(List<String> lines)
 	{
-		//System.out.println(lines);
-		for(int i = lines.size() - 1; i >= 0 ; i--)
+		for(String path: lines)
+			System.out.println(path);
+		for(int i = lines.size() - 1; i >= 0; i--)
 		{
-			//System.out.println(lines.get(i));
 			String[] path = lines.get(i).split("[\\\\]");
-			//System.out.println(Arrays.toString(path));
+			if(path[1].equals("Program Files") || path[1].equals("Program Files (x86)")|| path[1].equals("Program Data"))
+				lines.remove(i);
+		}
+		for(int i = lines.size() - 1; i >= 0; i--)
+		{
+			String[] path = lines.get(i).split("[\\\\]");
 			if(!search(MBuild.genList(), path, 0))
 				lines.remove(i);
 		}
+		System.out.println("\nItems to delete:\n");
+		for(String path: lines)
+			System.out.println(path);
 	}
 	
 	private boolean search(MItem dir, String[] path, int i)
