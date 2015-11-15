@@ -32,6 +32,7 @@ public class MBuild {
 			for(MFolder f: currentDir.folders())
 			{
 				String path = f.path();
+				path = path.substring(0,path.length()-1);
 				int mark = path.lastIndexOf('\\');
 				String folderName = path.substring(mark+1);
 				if(folderName.equals(layers[i]))
@@ -50,6 +51,7 @@ public class MBuild {
 				for(MFolder f: currentDir.folders())
 				{
 					String path = f.path();
+					path = path.substring(0,path.length()-1);
 					int mark = path.lastIndexOf('\\');
 					String folderName = path.substring(mark+1);
 					if(folderName.equals(layers[i]))
@@ -61,7 +63,9 @@ public class MBuild {
 			}
 			
 		}
-		currentDir.addFile(currentDir.path()+layers[layers.length-1]);
+		currentDir.addItem(new MFile(currentDir.path()+layers[layers.length-1]));
+		System.out.println(layers[layers.length-1]);
+		System.out.println(currentDir.path()+layers[layers.length-1]);
 		
 	}
 	
