@@ -19,7 +19,7 @@ public class MTester
 			for(int i = level; i > 0; i--)
 				System.out.print("\t");
 			
-			String[] splitPath = item.path.split("[\\\\]");
+			String[] splitPath = item.path().split("[\\\\]");
 			System.out.println(splitPath[splitPath.length-2]);
 			for(MItem itm: ((MFolder)item).contents())
 				print(itm, level+1);
