@@ -17,6 +17,8 @@ public class Runner
 		new FirewallSetup();
 		new SecPolSetup();
 		new UACSetup();
+		new ServicesSetup();
+		new MComp();
 	}
 	
 	public static boolean adminTest()  
