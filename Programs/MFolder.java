@@ -61,12 +61,12 @@ public class MFolder implements MItem
 	
 	public void addFolder(String p)
 	{
-		contents.add(new MFolder(path));
+		contents.add(new MFolder(p));
 	}
 	
 	public void addFile(String p)
 	{
-		contents.add(new MFile(path));
+		contents.add(new MFile(p));
 	}
 	
 	public void addItem(MItem i)
