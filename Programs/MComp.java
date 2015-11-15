@@ -59,13 +59,12 @@ public class MComp
 			}
 			else if (dir.isFolder())
 			{
-				boolean flag = false;
 				for(MItem item: ((MFolder)dir).contents())
 				{
 					if(search(item, path, i+1))
-						flag = true;
+						return true;
 				}
-				return flag;
+				return false;
 			}
 			else
 				return false;
