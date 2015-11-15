@@ -36,6 +36,29 @@ public class MFolder implements MItem
 		return contents;
 	}
 	
+	public List<MFolder> folders()
+	{
+		List<MFolder> f = new ArrayList<MFolder>();
+		for(MItem i: contents)
+		{
+			if(i.isFolder())
+				f.add((MFolder)i);
+		}
+		return f;
+	}
+	
+	public List<MFile> files()
+	{
+		List<MFile> f = new ArrayList<MFile>();
+		for(MItem i: contents)
+		{
+			if(i.isFile())
+				f.add((MFile)i);
+		}
+		
+		return f;
+	}
+	
 	public void addFolder(String p)
 	{
 		contents.add(new MFolder(path));
