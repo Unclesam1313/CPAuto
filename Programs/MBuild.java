@@ -64,8 +64,6 @@ public class MBuild {
 			
 		}
 		currentDir.addItem(new MFile(currentDir.path()+layers[layers.length-1]));
-		System.out.println(layers[layers.length-1]);
-		System.out.println(currentDir.path()+layers[layers.length-1]);
 		
 	}
 	
