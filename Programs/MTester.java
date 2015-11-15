@@ -12,13 +12,13 @@ public class MTester
 		{
 			for(int i = level; i > 0; i--)
 				System.out.print("\t");
-			System.out.println(item.path());
+			System.out.println(item.path().substring(item.path().lastIndexOf('\\')));
 		}
 		else if(item.isFolder())
 		{
 			for(int i = level; i > 0; i--)
 				System.out.print("\t");
-			System.out.println(item.path());
+			System.out.println(item.path().substring(item.path().lastIndexOf('\\')));
 			for(MItem itm: ((MFolder)item).contents())
 				print(itm, level+1);
 		}
