@@ -40,7 +40,7 @@ public class MComp
 		for(int i = lines.size() - 1; i >= 0; i--)
 		{
 			String[] path = lines.get(i).split("[\\\\]");
-			if(!search(MBuild.genList(), path, 0))
+			if(search(MBuild.genList(), path, 0))
 				lines.remove(i);
 		}
 		System.out.println("\nItems to delete:\n");
