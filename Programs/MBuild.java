@@ -8,20 +8,6 @@ public class MBuild {
 	private static ArrayList<String> items;
 	private static MFolder root = new MFolder("C:\\");
 
-	public MBuild()
-	{
-		
-
-		
-	}
-	
-	public static void main(String[] args) 
-	{
-		new MBuild();
-	}
-	
-
-	
 	public static void place(String s)
 	{
 		String[] layers = s.split("[\\\\]");
@@ -88,15 +74,11 @@ public class MBuild {
 			items.add(s.nextLine());
 		}
 		
-		
-		
 		for(String path : items)
 		{
 			place(path);
 		}
 		
-		
 		return root;
 	}
-
 }
