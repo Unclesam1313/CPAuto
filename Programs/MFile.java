@@ -36,4 +36,9 @@ public class MFile implements MItem
 	{
 		return path;
 	}
+	
+	public String toString()
+	{
+		return path;
+	}
 }
