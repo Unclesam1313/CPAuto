@@ -34,7 +34,7 @@ public class MComp
 		for(int i = lines.size() - 1; i >= 0; i--)
 		{
 			String[] path = lines.get(i).split("[\\\\]");
-			if(path.length() > 1 && path[1].equals("Program Files") || path[1].equals("Program Files (x86)")|| path[1].equals("Program Data"))
+			if(path.length > 1 && path[1].equals("Program Files") || path[1].equals("Program Files (x86)")|| path[1].equals("Program Data"))
 				lines.remove(i);
 		}
 		for(int i = lines.size() - 1; i >= 0; i--)
