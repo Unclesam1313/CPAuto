@@ -45,4 +45,10 @@ public class MFolder implements MItem
 	{
 		contents.add(new MFile(path));
 	}
+	
+		
+	public void addItem(MItem i)
+	{
+		contents.add(i);
+	}
 }
