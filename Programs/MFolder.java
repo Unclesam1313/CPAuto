@@ -3,7 +3,7 @@ import java.util.*;
 public class MFolder implements MItem 
 {
 	private String path;
-	private List<MItem> contents;
+	private ArrayList<MItem> contents;
 	
 	public MFolder(String p)
 	{
@@ -31,14 +31,14 @@ public class MFolder implements MItem
 		return path;
 	}
 	
-	public List<MItem> contents()
+	public ArrayList<MItem> contents()
 	{
 		return contents;
 	}
 	
-	public List<MFolder> folders()
+	public ArrayList<MFolder> folders()
 	{
-		List<MFolder> f = new ArrayList<MFolder>();
+		ArrayList<MFolder> f = new ArrayList<MFolder>();
 		for(MItem i: contents)
 		{
 			if(i.isFolder())
@@ -47,9 +47,9 @@ public class MFolder implements MItem
 		return f;
 	}
 	
-	public List<MFile> files()
+	public ArrayList<MFile> files()
 	{
-		List<MFile> f = new ArrayList<MFile>();
+		ArrayList<MFile> f = new ArrayList<MFile>();
 		for(MItem i: contents)
 		{
 			if(i.isFile())
@@ -69,7 +69,6 @@ public class MFolder implements MItem
 		contents.add(new MFile(path));
 	}
 	
-		
 	public void addItem(MItem i)
 	{
 		contents.add(i);
