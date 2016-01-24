@@ -27,20 +27,18 @@ public class MComp
 	
 	private void process(List<String> lines)
 	{
-		for(String path: lines)
-			System.out.println(path);
+		/*for(String path: lines)
+			System.out.println(path);*/
+
 		for(int i = lines.size() - 1; i >= 0; i--)
 		{
 			String[] path = lines.get(i).split("[\\\\]");
-			if(path.length > 1 && path[1].equals("Program Files") || path[1].equals("Program Files (x86)")|| path[1].equals("Program Data"))
+			if(path.length > 1 && (path[1].equals("Program Files") || path[1].equals("Program Files (x86)")|| path[1].equals("Program Data")))
+				lines.remove(i);
+			else if(search(MBuild.genList(), path, 0))
 				lines.remove(i);
 		}
-		for(int i = lines.size() - 1; i >= 0; i--)
-		{
-			String[] path = lines.get(i).split("[\\\\]");
-			if(search(MBuild.genList(), path, 0))
-				lines.remove(i);
-		}
+		
 		System.out.println("\nItems to delete:\n");
 		for(String path: lines)
 			System.out.println(path);
