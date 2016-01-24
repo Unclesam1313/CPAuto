@@ -77,13 +77,13 @@ public class GuiApp1
     	
 		final JPanel textPanel = new JPanel();
 		JTextArea textArea = new JTextArea("");
-        textArea.setFont(new Font("Apple Casual", Font.PLAIN, 12));
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
-        JScrollPane areaScrollPane = new JScrollPane(textArea);
-        areaScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        areaScrollPane.setPreferredSize(new Dimension(375, 300));
-        areaScrollPane.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Plain Text"),BorderFactory.createEmptyBorder(5,5,5,5)),areaScrollPane.getBorder()));
+		textArea.setFont(new Font("Apple Casual", Font.PLAIN, 12));
+        	textArea.setLineWrap(true);
+        	textArea.setWrapStyleWord(true);
+        	JScrollPane areaScrollPane = new JScrollPane(textArea);
+        	areaScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        	areaScrollPane.setPreferredSize(new Dimension(375, 300));
+        	areaScrollPane.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Plain Text"),BorderFactory.createEmptyBorder(5,5,5,5)),areaScrollPane.getBorder()));
 		textPanel.add(areaScrollPane);
 		
 		
@@ -100,8 +100,7 @@ public class GuiApp1
     			{
 
 	  				
-	  				final JFileChooser fc = new JFileChooser();
-	  				fc.showDialog(null, "Use File");
+	  				
 	  				
 	  				textArea.append(fc.getName()+" had been chosen.\n");
 	  				
@@ -120,6 +119,8 @@ public class GuiApp1
 	  				if (users.isSelected())
 	  				{
 	  					textArea.append("Attempting User Setup...");
+	  					final JFileChooser fc = new JFileChooser();
+	  					fc.showDialog(null, "Use File");
 	  					//new UserSetup();
 	  					textArea.append("User Setup: COMPLETE");
 	  				}
