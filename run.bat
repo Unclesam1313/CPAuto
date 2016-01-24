@@ -1,5 +1,4 @@
-cd C:\program
-set path=%path%;C:\Program Files\Java\jre7\bin
-javac *.java
-java Runner
+cd /d %~dp0CPAuto-master\Programs
+set path=%~dp0Java\bin
+java GuiApp1
 pause
