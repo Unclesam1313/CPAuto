@@ -121,7 +121,7 @@ public class GuiApp1
 	  					textArea.append("Attempting User Setup...");
 	  					final JFileChooser fc = new JFileChooser();
 	  					fc.showDialog(null, "Use File");
-	  					//new UserSetup();
+	  					//new UserSetup(fc.getSelectedFile());
 	  					textArea.append("User Setup: COMPLETE");
 	  				}
 	  				if (uac.isSelected())
