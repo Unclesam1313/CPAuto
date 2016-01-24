@@ -108,6 +108,7 @@ public class GuiApp1
                         }
                         catch(Exception e)
                         {
+                            e.printStackTrace();
                             for(StackTraceElement s: e.getStackTrace())
                                 textArea.append(s.toString()+"\n");
                             textArea.append("\n");
@@ -123,6 +124,7 @@ public class GuiApp1
                         }
                         catch(Exception e)
                         {
+                            e.printStackTrace();
                             for(StackTraceElement s: e.getStackTrace())
                                 textArea.append(s.toString()+"\n");
                             textArea.append("\n");
@@ -141,6 +143,7 @@ public class GuiApp1
                         }
                         catch(Exception e)
                         {
+                            e.printStackTrace();
                             for(StackTraceElement s: e.getStackTrace())
                                 textArea.append(s.toString()+"\n");
                             textArea.append("\n");
@@ -156,6 +159,7 @@ public class GuiApp1
                         }
                         catch(Exception e)
                         {
+                            e.printStackTrace();
                             for(StackTraceElement s: e.getStackTrace())
                                 textArea.append(s.toString()+"\n");
                             textArea.append("\n");
@@ -171,6 +175,7 @@ public class GuiApp1
                         }
                         catch(Exception e)
                         {
+                            e.printStackTrace();
                             for(StackTraceElement s: e.getStackTrace())
                                 textArea.append(s.toString()+"\n");
                             textArea.append("\n");
@@ -181,11 +186,15 @@ public class GuiApp1
                         try
                         {
                             textArea.append("Attempting Media File Search...\n");
-                            new MComp();
+                            MComp m = new MComp();
+                            textArea.append("Mismatched files found:\n");
+                            for(String s: m.lines)
+                                textArea.append(s+"\n");
                             textArea.append("Media Files: COMPLETE\n\n");
                         }
                         catch(Exception e)
                         {
+                            e.printStackTrace();
                             for(StackTraceElement s: e.getStackTrace())
                                 textArea.append(s.toString()+"\n");
                             textArea.append("\n");
