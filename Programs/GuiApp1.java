@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -139,10 +140,10 @@ public class GuiApp1
                             textArea.append(fc.getSelectedFile().getName() + " has been chosen.\n");
                             textArea.append("Attempting User Setup...\n");
                             UserSetup u = new UserSetup(fc.getSelectedFile());
-                            textArea.append("Users removed : " + u.comp.get(0)+"\n");
-                            textArea.append("Users added : " + u.comp.get(1)+"\n");
-                            textArea.append("Admins removed : " + u.comp.get(2)+"\n");
-                            textArea.append("Admins added : " + u.comp.get(3)+"\n");
+                            textArea.append("Users removed : " + Arrays.toString(u.comp.get(0))+"\n");
+                            textArea.append("Users added : " + Arrays.toString(u.comp.get(1))+"\n");
+                            textArea.append("Admins removed : " + Arrays.toString(u.comp.get(2))+"\n");
+                            textArea.append("Admins added : " + Arrays.toString(u.comp.get(3))+"\n");
                             textArea.append("User Setup: COMPLETE\n\n");
                         }
                         catch(Exception e)
