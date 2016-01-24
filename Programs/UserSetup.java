@@ -7,7 +7,7 @@ public class UserSetup
 	//formatted as 'username_admin?(y/n)'
 	private String[] usernames;
 	private boolean[] adminPerms;
-	public ArrayList<String[]> comp;
+	public ArrayList<String[]> comp = new ArrayList<String[]>();
 	
 	public UserSetup(File input) throws IOException
 	{
