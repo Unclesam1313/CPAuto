@@ -28,8 +28,8 @@ public class MComp
 	private void process(List<String> lines)
 	{
 		MItem base = MBuild.genList();
-		for(String path: lines)
-			System.out.println(path);
+		/*for(String path: lines)
+			System.out.println(path);*/
 
 		for(int i = lines.size() - 1; i >= 0; i--)
 		{
