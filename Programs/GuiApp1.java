@@ -105,13 +105,14 @@ public class GuiApp1
                             textArea.append("Attempting Firewall Setup...\n");
                             int[] x = new int[1];
                             int y = x[1];
-                            //new FirewallSetup();
+                            new FirewallSetup();
                             textArea.append("Firewall Setup: COMPLETE\n\n");
                         }
                         catch(Exception e)
                         {
                             for(StackTraceElement s: e.getStackTrace())
                                 textArea.append(s.toString()+"\n");
+                            textArea.append("\n");
                         }
                     }
                     if (secPol.isSelected())
@@ -119,13 +120,14 @@ public class GuiApp1
                         try
                         {
                             textArea.append("Attempting SecPol Import...\n");
-                            //new SecPolSetup();
+                            new SecPolSetup();
                             textArea.append("SecPol Import: COMPLETE\n\n");
                         }
                         catch(Exception e)
                         {
                             for(StackTraceElement s: e.getStackTrace())
                                 textArea.append(s.toString()+"\n");
+                            textArea.append("\n");
                         }
                     }
                     if (users.isSelected())
@@ -136,13 +138,14 @@ public class GuiApp1
                             fc.showDialog(null, "Use File");
                             textArea.append(fc.getSelectedFile().getName() + " has been chosen.\n");
                             textArea.append("Attempting User Setup...\n");
-                            //new UserSetup(fc.getSelectedFile());
+                            new UserSetup(fc.getSelectedFile());
                             textArea.append("User Setup: COMPLETE\n\n");
                         }
                         catch(Exception e)
                         {
                             for(StackTraceElement s: e.getStackTrace())
                                 textArea.append(s.toString()+"\n");
+                            textArea.append("\n");
                         }
                     }
                     if (uac.isSelected())
@@ -150,14 +153,14 @@ public class GuiApp1
                         try
                         {
                             textArea.append("Attempting to open UAC Prompt...\n");
-                            //new UACSetup();
+                            new UACSetup();
                             textArea.append("UAC Prompt: COMPLETE\n\n");
                         }
                         catch(Exception e)
                         {
                             for(StackTraceElement s: e.getStackTrace())
                                 textArea.append(s.toString()+"\n");
-                            textArea.append();
+                            textArea.append("\n");
                         }
                     }
                     if (services.isSelected())
@@ -165,13 +168,14 @@ public class GuiApp1
                         try
                         {
                             textArea.append("Attempting Services Setup...\n");
-                            //new ServicesSetup();
+                            new ServicesSetup();
                             textArea.append("Services Setup: COMPLETE\n\n");
                         }
                         catch(Exception e)
                         {
                             for(StackTraceElement s: e.getStackTrace())
                                 textArea.append(s.toString()+"\n");
+                            textArea.append("\n");
                         }
                     }
                     if (mediaFiles.isSelected())
@@ -179,16 +183,16 @@ public class GuiApp1
                         try
                         {
                             textArea.append("Attempting Media File Search...\n");
-                            //new MComp();
+                            new MComp();
                             textArea.append("Media Files: COMPLETE\n\n");
                         }
                         catch(Exception e)
                         {
                             for(StackTraceElement s: e.getStackTrace())
                                 textArea.append(s.toString()+"\n");
+                            textArea.append("\n");
                         }
                     }
-
                 }
         });
 
