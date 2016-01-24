@@ -4,6 +4,7 @@ import java.util.*;
 public class MComp
 {
 	private final String EXTENSIONS = "*.avi *.mpg *.vob *.mp4 *.m2ts *.mov *.3gp *.mkv *.m4a *.m4b *.mp3 *.wav *.wma *.webm *.wv *.flac";
+	public List<String> lines;
 
 	public MComp() throws IOException
 	{
@@ -13,7 +14,7 @@ public class MComp
 		Process p = b.start();
 		BufferedReader r = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		String line;
-		List<String> lines = new ArrayList<String>();
+		lines = new ArrayList<String>();
 		while(true)
 		{
 			line = r.readLine();
@@ -40,9 +41,9 @@ public class MComp
 				lines.remove(i);
 		}
 
-		System.out.println("\nItems to delete:\n");
+		/*System.out.println("\nItems to delete:\n");
 		for(String path: lines)
-			System.out.println(path);
+			System.out.println(path);*/
 	}
 
 	private boolean search(MItem dir, String[] path, int i)
