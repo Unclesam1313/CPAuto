@@ -7,6 +7,7 @@ public class UserSetup
 	//formatted as 'username_admin?(y/n)'
 	private String[] usernames;
 	private boolean[] adminPerms;
+	public ArrayList<String[]> comp;
 	
 	public UserSetup(File input) throws IOException
 	{
@@ -60,11 +61,15 @@ public class UserSetup
 			lines.add(line);
 		}
 		r.close();
+		System.out.println(lines);
 		String[] sysUsers = genUserArray(lines);
 		ArrayList<String[]> comp1 = compArrays(usernames, sysUsers);
+
+		comp.add(comp1.get(0));
+		comp.add(comp1.get(1));
 		
-		System.out.println("Users Removed: " + Arrays.toString(comp1.get(0)));
-		System.out.println("Users Added" + Arrays.toString(comp1.get(1)));
+		//System.out.println("Users Removed: " + Arrays.toString(comp1.get(0)));
+		//System.out.println("Users Added" + Arrays.toString(comp1.get(1)));
 		
 		String[] remove = comp1.get(0);
 		String[] add = comp1.get(1);
@@ -110,8 +115,12 @@ public class UserSetup
 		//System.out.println(Arrays.toString(sysAdmins));
 		remove = comp2.get(0);
 		add = comp2.get(1);
-		System.out.println("Admins Removed: " + Arrays.toString(comp2.get(0)));
-		System.out.println("Admins Added" + Arrays.toString(comp2.get(1)));
+
+		comp.add(comp2.get(0));
+		comp.add(comp2.get(1));
+
+		//System.out.println("Admins Removed: " + Arrays.toString(comp2.get(0)));
+		//System.out.println("Admins Added" + Arrays.toString(comp2.get(1)));
 		
 		for(String name: remove)
 		{
