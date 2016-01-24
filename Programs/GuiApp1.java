@@ -103,8 +103,6 @@ public class GuiApp1
                         try
                         {
                             textArea.append("Attempting Firewall Setup...\n");
-                            int[] x = new int[1];
-                            int y = x[1];
                             new FirewallSetup();
                             textArea.append("Firewall Setup: COMPLETE\n\n");
                         }
