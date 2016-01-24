@@ -138,7 +138,11 @@ public class GuiApp1
                             fc.showDialog(null, "Use File");
                             textArea.append(fc.getSelectedFile().getName() + " has been chosen.\n");
                             textArea.append("Attempting User Setup...\n");
-                            new UserSetup(fc.getSelectedFile());
+                            UserSetup u = new UserSetup(fc.getSelectedFile());
+                            textArea.append("Users removed : " + u.comp.get(0)+"\n");
+                            textArea.append("Users added : " + u.comp.get(1)+"\n");
+                            textArea.append("Admins removed : " + u.comp.get(2)+"\n");
+                            textArea.append("Admins added : " + u.comp.get(3)+"\n");
                             textArea.append("User Setup: COMPLETE\n\n");
                         }
                         catch(Exception e)
