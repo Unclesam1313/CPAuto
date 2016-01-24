@@ -66,6 +66,10 @@ public class GuiApp1
         services.setMnemonic(KeyEvent.VK_C);
         services.setSelected(true);
 
+        JCheckBox update = new JCheckBox("Enable Windows Update"); //Add checkable list
+        update.setMnemonic(KeyEvent.VK_C);
+        update.setSelected(true);
+
         buttonsPanel.add(buttonsLabel);
         buttonsPanel.add(secPol);
         buttonsPanel.add(users);
@@ -73,6 +77,7 @@ public class GuiApp1
         buttonsPanel.add(firewall);
         buttonsPanel.add(mediaFiles);
         buttonsPanel.add(services);
+        buttonsPanel.add(update);
 
 
 
@@ -196,6 +201,22 @@ public class GuiApp1
                             for(String s: m.lines)
                                 textArea.append(s+"\n");
                             textArea.append("Media Files: COMPLETE\n\n");
+                        }
+                        catch(Exception e)
+                        {
+                            e.printStackTrace();
+                            for(StackTraceElement s: e.getStackTrace())
+                                textArea.append(s.toString()+"\n");
+                            textArea.append("\n");
+                        }
+                    }
+                    if (update.isSelected())
+                    {
+                        try
+                        {
+                            textArea.append("Attempting Windows Update Setup...\n");
+                            new WinUpdate();
+                            textArea.append("Windows Update Setup: COMPLETE\n\n");
                         }
                         catch(Exception e)
                         {
